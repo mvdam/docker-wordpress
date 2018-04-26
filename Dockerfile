@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM php:7.2-apache
 
 # install the PHP extensions we need
 RUN set -ex; \
@@ -52,7 +52,10 @@ RUN set -ex; \
 # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
 	tar -xzf wordpress.tar.gz -C /usr/src/; \
 	rm wordpress.tar.gz; \
-	chown -R www-data:www-data /usr/src/wordpress
+	chown -R www-data:www-data /usr/src/wordpress;
+
+	
+	
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
